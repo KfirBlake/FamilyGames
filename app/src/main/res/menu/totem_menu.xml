@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_temp"
+        android:title="בחר משחק"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/totem_menu_birds"
+                android:icon="@drawable/totem_birds"
+                android:title="ציפורים"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/totem_menu_trees"
+                android:icon="@drawable/totem_trees"
+                android:title="עצים"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/totem_menu_animals"
+                android:icon="@drawable/animals"
+                android:title="חיות"
+                app:showAsAction="ifRoom"/>
+
+            <item
+                android:id="@+id/totem_menu_flowers"
+                android:title="פרחים" />
+
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/totem_menu_select_picture_number"
+        android:title="בחר כמות תמונות לבחירה">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/totem_menu_number_of_picture4"
+                    android:checked="true"
+                    android:title="4" />
+                <item
+                    android:id="@+id/totem_menu_number_of_picture5"
+                    android:title="5" />
+                <item
+                    android:id="@+id/totem_menu_number_of_picture6"
+                    android:title="6" />
+                <item
+                    android:id="@+id/totem_menu_number_of_picture7"
+                    android:title="7" />
+                <item
+                    android:id="@+id/totem_menu_number_of_picture8"
+                    android:title="8"
+                    android:visible="false"/>
+            </group>
+        </menu>
+    </item>
+</menu>

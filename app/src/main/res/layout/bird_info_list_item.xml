@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/birdParent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/collapsedRelLayout">
+            <TextView
+                android:id="@+id/txtBirdInfoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Bird Name"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginRight="10dp"/>
+
+            <ImageView
+                android:id="@+id/imgBirdInfoImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@id/txtBirdInfoName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/birds_game" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/speeker_say_again"
+                android:id="@+id/imgBirdInfoPlaySound"
+                android:layout_below="@id/imgBirdInfoImage"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/speeker_say_again"
+                android:id="@+id/imgBirdInfoPlayName"
+                android:layout_marginRight="100dp"
+                android:layout_below="@id/imgBirdInfoImage"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_down_arrow"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/imgBirdInfoImage"
+                android:id="@+id/btnBirdInfoDownArrow"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/imgBirdInfoImage">
+            </LinearLayout>
+
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/collapsedRelLayout"
+            android:id="@+id/expandedRelLayout"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/txtBirdInfoInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:text="Bird Info" />
+            <TextView
+                android:id="@+id/txtBirdInfoFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:text="Bird Food"
+                android:layout_below="@id/txtBirdInfoInfo"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_up_arrow"
+                android:layout_below="@id/txtBirdInfoFood"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btnBirdInfoUpArrow"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

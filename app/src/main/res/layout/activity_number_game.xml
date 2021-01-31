@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sunny_day"
+    tools:context=".NumberGame">
+
+    <RadioGroup
+        android:id="@+id/radioGroupMathSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/MathSignAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClickedMathSign"
+            android:text="@string/math_sign_add"
+            android:textSize="30sp"></RadioButton>
+
+        <RadioButton
+            android:id="@+id/MathSignMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClickedMathSign"
+            android:text="@string/math_sign_minus"
+            android:textSize="30sp"></RadioButton>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupMathSign">
+
+        <TextView
+            android:id="@+id/ScoreTextView"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="601"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:id="@+id/Score1_ImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="First Number"
+            app:srcCompat="@drawable/star" />
+        <ImageView
+            android:id="@+id/Score2_ImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="First Number"
+            app:srcCompat="@drawable/star" />
+        <ImageView
+            android:id="@+id/Score3_ImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="First Number"
+            app:srcCompat="@drawable/star" />
+        <ImageView
+            android:id="@+id/Score4_ImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="First Number"
+            app:srcCompat="@drawable/star" />
+        <ImageView
+            android:id="@+id/Score5_ImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="First Number"
+            app:srcCompat="@drawable/star" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/ResultInputEditText"
+        android:layout_width="217dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_result"
+        android:inputType="number"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NumberTwoImageView" />
+
+    <Button
+        android:id="@+id/ResultButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/click_submit"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toEndOf="@+id/ResultInputEditText"
+        app:layout_constraintTop_toTopOf="@+id/ResultInputEditText" />
+
+    <ImageView
+        android:id="@+id/NumberOneImageView"
+        android:layout_width="123dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:contentDescription="First Number"
+        app:layout_constrainedHeight="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/NumberTwoImageView"
+        app:srcCompat="@drawable/number1" />
+
+    <ImageView
+        android:id="@+id/NumberTwoImageView"
+        android:layout_width="123dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="188dp"
+        android:contentDescription="Second Number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupMathSign"
+        app:srcCompat="@drawable/number2" />
+
+    <ImageView
+        android:id="@+id/MathSignImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="MathSign"
+        app:layout_constraintEnd_toStartOf="@+id/NumberOneImageView"
+        app:layout_constraintStart_toEndOf="@+id/NumberTwoImageView"
+        app:layout_constraintTop_toTopOf="@+id/NumberTwoImageView"
+        app:srcCompat="@drawable/math_sign_add" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/LevelOneRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level_one"
+            android:textSize="30sp"></RadioButton>
+
+        <RadioButton
+            android:id="@+id/LevelTwoRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level_two"
+            android:textSize="30sp"></RadioButton>
+
+        <RadioButton
+            android:id="@+id/LevelThreeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/level_three"
+            android:textSize="30sp"></RadioButton>
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

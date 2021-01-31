@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="הגדרות משחק">
+        <SwitchPreferenceCompat
+            android:icon="@drawable/kids"
+            android:key="pref_play_sound"
+            android:title="השמע צלילים"
+            android:summary="האם להשמיע קולות עידוד"
+            android:defaultValue="true"/>
+        <ListPreference
+            android:key="pref_number_of_point_for_error"
+            android:title="מספר הנקודות להוריד כשטועים"
+            android:summary="האם להוריד נקודות כשטועים. אם ללא, הגדר כ 0"
+            app:useSimpleSummaryProvider="true"
+            android:entries="@array/settings_points_reduce_for_error"
+            android:entryValues="@array/settings_points_reduce_for_error"
+            android:icon="@drawable/birds_game"
+            android:defaultValue="2"/>
+
+        <SwitchPreferenceCompat
+            android:key="pref_timeout_flag"
+            android:title="משחק קצוב בזמן"
+            android:defaultValue="false"/>
+
+        <ListPreference
+            android:key="pref_timeout_secounds"
+            android:dependency="pref_timeout_flag"
+            android:title="הכנס זמן קצוב לתשובה"
+            app:useSimpleSummaryProvider="true"
+            android:entries="@array/settings_timeout_secounds"
+            android:entryValues="@array/settings_timeout_secounds"
+            android:icon="@drawable/birds_game1"
+            android:defaultValue="0"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="שחקנים">
+
+    </PreferenceCategory>
+</PreferenceScreen>

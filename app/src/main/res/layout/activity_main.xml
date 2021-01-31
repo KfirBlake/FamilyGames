@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/ChooseGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/select_game"
+            android:textSize="30sp" />
+
+        <TableLayout android:id="@+id/buttonTableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:stretchColumns="0,1">
+            <TableRow android:id="@+id/tableRow0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+            </TableRow>
+
+            <TableRow android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/StartNumberGameButton"
+                    android:layout_width="146dp"
+                    android:layout_height="98dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/logo_math_game"
+                    android:onClick="startNumberGame"/>
+
+                <Button
+                    android:id="@+id/StartLettersGameButton"
+                    android:layout_width="146dp"
+                    android:layout_height="98dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/logo_letters_game"
+                    android:onClick="startLettersGame"/>
+            </TableRow>
+            <TableRow android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/startBirdGameButton"
+                    android:layout_width="146dp"
+                    android:layout_height="98dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/birds_game2"
+                    android:onClick="startBirdsGame"/>
+                <Button
+                    android:id="@+id/startBirdInformationButton"
+                    android:layout_width="146dp"
+                    android:layout_height="98dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/birds_game1"
+                    android:onClick="startBirdsInformation"/>
+
+            </TableRow>
+            <TableRow android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/startTotemPoleButton"
+                    android:layout_width="146dp"
+                    android:layout_height="98dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/totem_pole"
+                    android:onClick="startTotemPoleGame"/>
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

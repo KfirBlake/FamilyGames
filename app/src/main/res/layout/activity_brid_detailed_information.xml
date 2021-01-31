@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BirdDetailedInformation">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/viewPagerBirdDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtBirdDetailName"
+                />
+
+            <ImageView
+                android:id="@+id/imgBirdDetailBig"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="400dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtBirdDetailName"
+                app:srcCompat="@drawable/birds_game1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/imgBirdDetailBigImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="325dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="397dp" />
+
+            <ImageView
+                android:id="@+id/imgBirdDetailSmall1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgBirdDetailBigImage"
+                app:srcCompat="@drawable/birds_game1" />
+
+            <ImageView
+                android:id="@+id/imgBirdDetailSmall2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toEndOf="@+id/imgBirdDetailSmall1"
+                app:layout_constraintTop_toTopOf="@+id/imgBirdDetailBigImage"
+                app:srcCompat="@drawable/birds_game1" />
+
+            <ImageView
+                android:id="@+id/imgBirdDetailSmall3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toEndOf="@+id/imgBirdDetailSmall2"
+                app:layout_constraintTop_toTopOf="@+id/imgBirdDetailBigImage"
+                app:srcCompat="@drawable/birds_game1" />
+
+            <ImageView
+                android:id="@+id/imgBirdDetailSmall4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toEndOf="@+id/imgBirdDetailSmall3"
+                app:layout_constraintTop_toTopOf="@+id/imgBirdDetailBigImage"
+                app:srcCompat="@drawable/birds_game1" />
+
+            <ImageView
+                android:id="@+id/imgBirdDetailSmall5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toEndOf="@+id/imgBirdDetailSmall4"
+                app:layout_constraintTop_toTopOf="@+id/imgBirdDetailBigImage"
+                app:srcCompat="@drawable/birds_game1" />
+
+            <TextView
+                android:id="@+id/txtBirdDetailedInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+            <TextView
+                android:id="@+id/txtBirdDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="נחליאלי"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>

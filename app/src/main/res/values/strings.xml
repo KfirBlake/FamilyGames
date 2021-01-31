@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Kids</string>
+
+    <!-- Activities Titles In AndroidManifest.xml -->
+    <string name="activity_title_home">המשחקים של משפחת בלייק</string>
+    <string name="activity_title_game_settings">הגדרות</string>
+    <string name="activity_title_game_letter">אותיות</string>
+    <string name="activity_title_game_math">חשבון</string>
+    <string name="activity_title_game_bird">זהה את הציפורים</string>
+    <string name="activity_title_birs_info">למד על צפורים</string>
+    <string name="activity_title_game_totem_poll">משחק הטוטם</string>
+
+    <string name="select_game">בחר משחק</string>
+
+    <!-- Preference Titles -->
+    <string name="setting_lable_number_of_point">מספר נקודות להוריד כשטועים</string>
+    <string name="setting_lable_timer">מספר שניות לכל תשובה</string>
+
+    <!-- Numbers Game -->
+    <string name="enter_result">הכנס תוצאה</string>
+    <string name="click_submit">שלח</string>
+    <string name="start_number_game">התחל משחק חשבון</string>
+    <string name="level_one">קל</string>
+    <string name="level_two">בינוני</string>
+    <string name="level_three">קשה</string>
+    <string name="math_sign_add">חיבור +</string>
+    <string name="math_sign_minus">חיסור -</string>
+
+    <!-- Letters Game -->
+    <string name="letter_find_first">אות תחילית</string>
+    <string name="letter_find_last">אות סופית</string>
+
+    <!-- Birds Game -->
+    <string name="bird_game_title_by_sound">איזה ציפור מצייצת כך</string>
+    <string name="bird_game_title_by_name">לחץ על התמונה של הציפור</string>
+    <string name="bird_game_play_sound_again">לשמיעה נוספת</string>
+    <string name="bird_game_play_by_name">לפי שם ציפור</string>
+    <string name="bird_game_play_by_sound">לפי ציוץ ציפור</string>
+
+
+</resources>
