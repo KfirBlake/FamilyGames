@@ -100,6 +100,15 @@
                     android:background="@drawable/totem_pole"
                     android:onClick="startTotemPoleGame"/>
 
+                <Button
+                    android:id="@+id/startLetterQuizButton"
+                    android:layout_width="146dp"
+                    android:layout_height="98dp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/letter_quiz"
+                    android:onClick="startLetterQuizGame"/>
+
             </TableRow>
         </TableLayout>
     </LinearLayout>

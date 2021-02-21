@@ -9,36 +9,33 @@
         android:roundIcon="@drawable/kids"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".WelcomeScreen">
-<!--            <intent-filter>
+
+            <!--
+                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
-        </activity>
-
-        <!-- Main Activity and Start Point for all games -->
+            </intent-filter>
+            -->
+        </activity> <!-- Main Activity and Start Point for all games -->
         <activity
             android:name=".MainActivity"
             android:label="@string/activity_title_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Settings -->
+        </activity> <!-- Settings -->
         <activity android:name=".SettingsActivity" />
-
-        <activity android:name=".settings.AppSettingsActivity"
+        <activity
+            android:name=".settings.AppSettingsActivity"
             android:label="@string/activity_title_game_settings"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-
-        <!-- Games -->
+        </activity> <!-- Games -->
         <activity
             android:name=".NumberGame"
             android:label="@string/activity_title_game_math"
@@ -70,9 +67,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-
-        <!-- Birds Information and Details -->
+        </activity> <!-- Birds Information and Details -->
         <activity
             android:name=".BirdsInformationActivity"
             android:label="@string/activity_title_birs_info"
@@ -87,9 +82,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-
-        <!-- New Game that need to develop. already put the score in the activity -->
+        </activity> <!-- New Game that need to develop. already put the score in the activity -->
         <activity
             android:name=".SdarotGame"
             android:parentActivityName=".MainActivity">
@@ -97,6 +90,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <activity android:name=".LetterQuizGame"
+            android:label="השלם את האותיות"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>
