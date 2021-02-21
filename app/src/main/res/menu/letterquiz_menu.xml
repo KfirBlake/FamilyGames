@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/menugroup_PlayBy"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_letterQuizPlayByImage"
+            android:checked="true"
+            android:title="לפי תמונה" />
+        <item
+            android:id="@+id/menu_letterQuizPlayByQuestion"
+            android:title="לפי שאלה" />
+    </group>
+    <item
+        android:id="@+id/menu_letterQuizNumberOfLetters"
+        android:title="כמות אותיות לבחירה">
+        <menu>
+            <group
+                android:id="@+id/menugroup_NumberOfLeeterInSuggest"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_letterQuizNumberOfLeeterInSuggest1"
+                    android:title="10" />
+                <item
+                    android:id="@+id/menu_letterQuizNumberOfLeeterInSuggest2"
+                    android:checked="true"
+                    android:title="15" />
+                <item
+                    android:id="@+id/menu_letterQuizNumberOfLeeterInSuggest3"
+                    android:title="20" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_letterQuizLevel"
+        android:title="רמת משחק כמות אותיות להסתיר">
+        <menu>
+            <group
+                android:id="@+id/menugroup_GameLevel"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_letterQuizLevel1"
+                    android:title="רמה 1 - אות אחת" />
+                <item
+                    android:id="@+id/menu_letterQuizLevel2"
+                    android:title="רמה 2 - 2 אותיות" />
+                <item
+                    android:id="@+id/menu_letterQuizLevel3"
+                    android:title="רמה 3 - 3 אותיות" />
+                <item
+                    android:id="@+id/menu_letterQuizLevel4"
+                    android:checked="true"
+                    android:title="רמה 4 - כל האותיות" />
+            </group>
+        </menu>
+    </item>
+</menu>

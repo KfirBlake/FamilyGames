@@ -124,5 +124,9 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-
+    public void startLetterQuizGame(View view)
+    {
+        Intent intent = new Intent(this, LetterQuizGame.class);
+        startActivity(intent);
+    }
 }
