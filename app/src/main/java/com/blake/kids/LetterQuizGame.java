@@ -47,7 +47,7 @@ public class LetterQuizGame extends AppCompatActivity
     String correctAnswer;
 
     public char[] user_answer;
-    public String[] lettersArrayAll = {   "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י",
+    public String[] lettersArrayAll = {"א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י",
             "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ", "ק", "ר", "ש", "ת",
             "ך", "ם", "ן", "ף", "ץ"};
 
@@ -55,6 +55,13 @@ public class LetterQuizGame extends AppCompatActivity
     Boolean playByImage = true;
     int NumberOfLettersInSuggestTable = 15;
     int QuizLevel = 4;
+
+    private Integer score = 0;
+    TextView scoreTextView;
+    ImageView[] scoreArrayImageList = new ImageView[5];
+    TextView timeLeftTextView;
+    TextView titleTextView;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -132,7 +139,7 @@ public class LetterQuizGame extends AppCompatActivity
         }
     }
 
-            @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -146,31 +153,43 @@ public class LetterQuizGame extends AppCompatActivity
 
     private void initView()
     {
-        gridViewAnswer= (GridView) findViewById(R.id.LetterQuizAnswers);
+        gridViewAnswer = (GridView) findViewById(R.id.LetterQuizAnswers);
         gridViewSuggest = (GridView) findViewById(R.id.LetterQuizSuggests);
         imgViewQuestion = (ImageView) findViewById(R.id.LetterQuizPicture);
         textViewQuestion = (TextView) requireViewById(R.id.LetterQuizQuestion);
 
         loadNewPicture();
 
-        btnSubmit = (Button)findViewById(R.id.LetterQuizSubmit);
+        btnSubmit = (Button) findViewById(R.id.LetterQuizSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 String result = String.valueOf(user_answer);
-                if(result.equals(correctAnswer))
+                if (result.equals(correctAnswer))
                 {
-                    GameHelper.getInstance().playSound(LetterQuizGame.this, GameHelper.getInstance().getSuccessSound());
+                    score = GameHelper.getInstance().correctAnswer(LetterQuizGame.this, scoreTextView, scoreArrayImageList, score);
                     loadNewPicture();
                 }
                 else
                 {
-                    GameHelper.getInstance().playSound(LetterQuizGame.this, GameHelper.getInstance().getFailedSound());
+                    score = GameHelper.getInstance().wrongAnswer(LetterQuizGame.this, scoreTextView, scoreArrayImageList, score);
                 }
             }
         });
+
+        scoreTextView = findViewById(R.id.ScoreTextView);
+        scoreArrayImageList[0] = findViewById(R.id.Score1_ImageView);
+        scoreArrayImageList[1] = findViewById(R.id.Score2_ImageView);
+        scoreArrayImageList[2] = findViewById(R.id.Score3_ImageView);
+        scoreArrayImageList[3] = findViewById(R.id.Score4_ImageView);
+        scoreArrayImageList[4] = findViewById(R.id.Score5_ImageView);
+        timeLeftTextView = findViewById(R.id.TimeLeftTextView);
+        titleTextView = findViewById(R.id.TitleTextView);
+
+        GameHelper.getInstance().setScore(LetterQuizGame.this, scoreTextView, scoreArrayImageList, score);
+
     }
 
     private void loadNewPicture()
@@ -200,7 +219,7 @@ public class LetterQuizGame extends AppCompatActivity
 
         //Add answer char to suggest list
         suggestSource.clear();
-        for(char item : theCorrectAnswerCharArray)
+        for (char item : theCorrectAnswerCharArray)
         {
             // Add correct letters of image
             suggestSource.add(String.valueOf(item));
@@ -214,7 +233,8 @@ public class LetterQuizGame extends AppCompatActivity
 
         Collections.shuffle(suggestSource);
 
-        answerAdapter = new GridViewAnswerAdapter(this, createEmptyArrayLetter());
+        playByLevel();
+        answerAdapter = new GridViewAnswerAdapter(this, this, user_answer);
         gridViewAnswer.setAdapter(answerAdapter);
         answerAdapter.notifyDataSetChanged();
 
@@ -241,6 +261,39 @@ public class LetterQuizGame extends AppCompatActivity
         }
 
         return questionInfo;
+    }
+
+    private void playByLevel()
+    {
+        if (QuizLevel == 4)
+        {
+            for (int i = 0; i < theCorrectAnswerCharArray.length; i++)
+            {
+                user_answer[i] = Character.MIN_VALUE;
+            }
+        }
+        else
+        {
+            Random random = new Random();
+            Boolean flag[] = new Boolean[theCorrectAnswerCharArray.length];
+            for (int i = 0; i < theCorrectAnswerCharArray.length; i++)
+            {
+                user_answer[i] = theCorrectAnswerCharArray[i];
+                flag[i] = false;
+            }
+
+            for (int i = 0; i < QuizLevel && i < theCorrectAnswerCharArray.length - 1; i++)
+            {
+                int index = 0;
+                do
+                {
+                    index = random.nextInt(theCorrectAnswerCharArray.length);
+                }
+                while (flag[index]);
+                flag[index] = true;
+                user_answer[index] = Character.MIN_VALUE;
+            }
+        }
     }
 
     private char[] createEmptyArrayLetter()

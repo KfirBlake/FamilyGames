@@ -15,6 +15,10 @@
         android:orientation="vertical"
         android:layout_above="@id/LetterQuizSubmit"
         android:layout_gravity="center_horizontal">
+        <include layout="@layout/score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/LetterQuizQuestion"
             android:layout_width="match_parent"
