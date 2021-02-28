@@ -74,29 +74,25 @@ public class GridViewSuggestAdapter extends BaseAdapter
                     @Override
                     public void onClick(View v)
                     {
-                        if (String.valueOf(letterQuizGame.theCorrectAnswerCharArray).contains(suggestSource.get(position)))
+                        char letterToAddToAnswer = suggestSource.get(position).charAt(0);
+                        Boolean addLetter = false;
+                        for (int i = 0; i < letterQuizGame.user_answer.length; i++)
                         {
-                            char letterToAddToAnswer = suggestSource.get(position).charAt(0); // Get Char
-                            for (int i = 0; i < letterQuizGame.theCorrectAnswerCharArray.length; i++)
+                            if(String.valueOf(letterQuizGame.user_answer[i]).trim().equals(""))
                             {
-                                if (letterQuizGame.theCorrectAnswerCharArray[i] == letterToAddToAnswer)
-                                {
-                                    letterQuizGame.user_answer[i] = letterToAddToAnswer;
-                                }
+                                letterQuizGame.user_answer[i] = letterToAddToAnswer;
+                                addLetter = true;
+                                break;
                             }
+                        }
 
-                            GridViewAnswerAdapter answerAdapter = new GridViewAnswerAdapter(context, letterQuizGame.user_answer);
+                        if(addLetter)
+                        {
+                            GridViewAnswerAdapter answerAdapter = new GridViewAnswerAdapter(context, letterQuizGame, letterQuizGame.user_answer);
                             letterQuizGame.gridViewAnswer.setAdapter(answerAdapter);
                             answerAdapter.notifyDataSetChanged();
 
-                            letterQuizGame.suggestSource.set(position, "empty");
-                            letterQuizGame.suggestAdapter = new GridViewSuggestAdapter(context, letterQuizGame, letterQuizGame.suggestSource);
-                            letterQuizGame.gridViewSuggest.setAdapter(letterQuizGame.suggestAdapter);
-                            letterQuizGame.suggestAdapter.notifyDataSetChanged();
-                        }
-                        else
-                        {
-                            letterQuizGame.suggestSource.set(position, "empty");
+                            letterQuizGame.suggestSource.set(position, "empty_" + String.valueOf(letterToAddToAnswer));
                             letterQuizGame.suggestAdapter = new GridViewSuggestAdapter(context, letterQuizGame, letterQuizGame.suggestSource);
                             letterQuizGame.gridViewSuggest.setAdapter(letterQuizGame.suggestAdapter);
                             letterQuizGame.suggestAdapter.notifyDataSetChanged();
