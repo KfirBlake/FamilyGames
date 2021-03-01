@@ -129,4 +129,10 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, LetterQuizGame.class);
         startActivity(intent);
     }
+
+    public void startCountGame(View view)
+    {
+        Intent intent = new Intent(this, CountGame.class);
+        startActivity(intent);
+    }
 }
