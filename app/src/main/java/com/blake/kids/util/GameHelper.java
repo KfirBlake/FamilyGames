@@ -243,6 +243,36 @@ public class GameHelper
         }
     }
 
+
+    public int getImageByNumber(Integer id)
+    {
+        switch (id)
+        {
+            case 1:
+                return R.drawable.number1;
+            case 2:
+                return R.drawable.number2;
+            case 3:
+                return R.drawable.number3;
+            case 4:
+                return R.drawable.number4;
+            case 5:
+                return R.drawable.number5;
+            case 6:
+                return R.drawable.number6;
+            case 7:
+                return R.drawable.number7;
+            case 8:
+                return R.drawable.number8;
+            case 9:
+                return R.drawable.number9;
+            case 10:
+                return R.drawable.number10;
+            default:
+                return R.drawable.ic_launcher_background;
+        }
+    }
+
     public void timeOut(Context context, String message, Integer imageResource)
     {
         playSound(context, R.raw.explosion);
