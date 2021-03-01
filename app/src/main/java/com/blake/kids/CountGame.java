@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blake.kids.adapter.GridViewImageAdapter;
@@ -17,8 +19,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import static android.widget.Toast.makeText;
+
 public class CountGame extends AppCompatActivity
 {
+    public static final String SAVE_SCORE = "SCORE";
+
     private ImageView number1ImageView;
     private ImageView number2ImageView;
     private ImageView number3ImageView;
@@ -35,6 +41,27 @@ public class CountGame extends AppCompatActivity
     public GridViewImageAdapter gridViewImageAdapter;
     public GridView gridViewImageNumbers;
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_SCORE, score);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        score = savedInstanceState.getInt(SAVE_SCORE, 0);
+        try
+        {
+            scoreTextView.setText(String.valueOf(score));
+        }
+        catch (Exception e)
+        {
+            makeText(CountGame.this, "Problem happen: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

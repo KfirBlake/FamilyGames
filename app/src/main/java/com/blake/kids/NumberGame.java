@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blake.kids.util.GameHelper;
@@ -21,6 +22,7 @@ import static android.widget.Toast.makeText;
 
 public class NumberGame extends AppCompatActivity
 {
+    public static final String SAVE_SCORE = "SCORE";
 
     private Integer num1 = 1;
     private Integer num2 = 2;
@@ -59,6 +61,28 @@ public class NumberGame extends AppCompatActivity
             }
         });
         builder.create().show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_SCORE, score);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        score = savedInstanceState.getInt(SAVE_SCORE, 0);
+        try
+        {
+            scoreTextView.setText(String.valueOf(score));
+        }
+        catch (Exception e)
+        {
+            makeText(NumberGame.this, "Problem happen: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

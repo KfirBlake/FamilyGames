@@ -31,6 +31,8 @@ import static android.widget.Toast.makeText;
 
 public class LetterQuizGame extends AppCompatActivity
 {
+    public static final String SAVE_SCORE = "SCORE";
+
     public Button btnSubmit;
     public GridView gridViewAnswer, gridViewSuggest;
     public ImageView imgViewQuestion;
@@ -136,6 +138,28 @@ public class LetterQuizGame extends AppCompatActivity
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_SCORE, score);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        score = savedInstanceState.getInt(SAVE_SCORE, 0);
+        try
+        {
+            scoreTextView.setText(String.valueOf(score));
+        }
+        catch (Exception e)
+        {
+            makeText(LetterQuizGame.this, "Problem happen: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
