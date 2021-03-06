@@ -168,7 +168,7 @@ public class LetterGame extends AppCompatActivity
                     if (GameHelper.getInstance().getNumberOfSecondForTimeout() > 0)
                     {
                         timeLeftTextView.setText("הזמן נגמר!!");
-                        GameHelper.getInstance().timeOut(LetterGame.this, "הזמן עבר !", R.drawable.kids);
+                        GameHelper.getInstance().timeOut(LetterGame.this, "הזמן עבר !", R.drawable.boom);
                     }
                 }
             }.start();

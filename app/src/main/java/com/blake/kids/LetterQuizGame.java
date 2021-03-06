@@ -1,7 +1,12 @@
 package com.blake.kids;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
 
 import com.blake.kids.adapter.GridViewAnswerAdapter;
@@ -63,6 +69,45 @@ public class LetterQuizGame extends AppCompatActivity
     ImageView[] scoreArrayImageList = new ImageView[5];
     TextView timeLeftTextView;
     TextView titleTextView;
+    CountDownTimer countDownTimer;
+    int timeInterval;
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        if (GameHelper.getInstance().getTimeOutFlag())
+            countDownTimer.cancel();
+    }
+    @Override
+    public void onBackPressed()
+    {
+        if (GameHelper.getInstance().getTimeOutFlag())
+            countDownTimer.cancel();
+        AlertDialog.Builder builder = new AlertDialog.Builder(LetterQuizGame.this);
+        //builder.setTitle("אתה בטוח שאתה רוצה לצאת");
+        builder.setMessage("האם אתה בטוח שאתה רוצה לצאת?");
+        builder.setPositiveButton("כן", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                LetterQuizGame.super.onBackPressed();
+                if (GameHelper.getInstance().getTimeOutFlag())
+                    countDownTimer.cancel();
+            }
+        });
+        builder.setNegativeButton("לא", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                if (GameHelper.getInstance().getTimeOutFlag())
+                    countDownTimer.start();
+            }
+        });
+        builder.create().show();
+    }
 
 
     @Override
@@ -182,6 +227,54 @@ public class LetterQuizGame extends AppCompatActivity
         imgViewQuestion = (ImageView) findViewById(R.id.LetterQuizPicture);
         textViewQuestion = (TextView) requireViewById(R.id.LetterQuizQuestion);
 
+        scoreTextView = findViewById(R.id.ScoreTextView);
+        scoreArrayImageList[0] = findViewById(R.id.Score1_ImageView);
+        scoreArrayImageList[1] = findViewById(R.id.Score2_ImageView);
+        scoreArrayImageList[2] = findViewById(R.id.Score3_ImageView);
+        scoreArrayImageList[3] = findViewById(R.id.Score4_ImageView);
+        scoreArrayImageList[4] = findViewById(R.id.Score5_ImageView);
+        timeLeftTextView = findViewById(R.id.TimeLeftTextView);
+        titleTextView = findViewById(R.id.TitleTextView);
+
+
+        if (GameHelper.getInstance().getTimeOutFlag())
+        {
+            countDownTimer = new CountDownTimer(GameHelper.getInstance().getNumberOfSecondForTimeout() * 1000, 1000)
+            {
+                public void onTick(long millisUntilFinished)
+                {
+
+                    //here you can have your logic to set text to timeText
+                    timeLeftTextView.setText(String.valueOf(timeInterval));
+                    if (timeInterval <= 4)
+                    {
+                        timeLeftTextView.setTextColor(Color.RED);
+                        timeLeftTextView.setTypeface(null, Typeface.BOLD);
+                    }
+                    else if (timeInterval < 10)
+                    {
+                        timeLeftTextView.setTextColor(ContextCompat.getColor(LetterQuizGame.this, R.color.colorOrange));
+                        timeLeftTextView.setTypeface(null, Typeface.NORMAL);
+                    }
+                    else
+                    {
+                        timeLeftTextView.setTextColor(Color.GREEN);
+                        timeLeftTextView.setTypeface(null, Typeface.NORMAL);
+                    }
+                    timeInterval--;
+                }
+
+                public void onFinish()
+                {
+                    if (GameHelper.getInstance().getNumberOfSecondForTimeout() > 0)
+                    {
+                        timeLeftTextView.setText("הזמן נגמר!!");
+                        GameHelper.getInstance().timeOut(LetterQuizGame.this, "הזמן עבר !", R.drawable.boom);
+                    }
+                }
+            }.start();
+        }
+
         loadNewPicture();
 
         btnSubmit = (Button) findViewById(R.id.LetterQuizSubmit);
@@ -202,15 +295,6 @@ public class LetterQuizGame extends AppCompatActivity
                 }
             }
         });
-
-        scoreTextView = findViewById(R.id.ScoreTextView);
-        scoreArrayImageList[0] = findViewById(R.id.Score1_ImageView);
-        scoreArrayImageList[1] = findViewById(R.id.Score2_ImageView);
-        scoreArrayImageList[2] = findViewById(R.id.Score3_ImageView);
-        scoreArrayImageList[3] = findViewById(R.id.Score4_ImageView);
-        scoreArrayImageList[4] = findViewById(R.id.Score5_ImageView);
-        timeLeftTextView = findViewById(R.id.TimeLeftTextView);
-        titleTextView = findViewById(R.id.TitleTextView);
 
         GameHelper.getInstance().setScore(LetterQuizGame.this, scoreTextView, scoreArrayImageList, score);
 
@@ -265,6 +349,13 @@ public class LetterQuizGame extends AppCompatActivity
         suggestAdapter = new GridViewSuggestAdapter(this, this, suggestSource);
         gridViewSuggest.setAdapter(suggestAdapter);
         suggestAdapter.notifyDataSetChanged();
+
+        timeInterval = GameHelper.getInstance().getNumberOfSecondForTimeout();
+        if (GameHelper.getInstance().getTimeOutFlag())
+        {
+            countDownTimer.cancel();
+            countDownTimer.start();
+        }
     }
 
     private QuestionInfo getRandomQuestionInfo()
