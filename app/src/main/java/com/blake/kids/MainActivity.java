@@ -135,4 +135,16 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, CountGame.class);
         startActivity(intent);
     }
+
+    public void startEnglishGame(View view)
+    {
+        Intent intent = new Intent(this, EnglishGame.class);
+        startActivity(intent);
+    }
+
+    public void startLearnEnglish(View view)
+    {
+        Intent intent = new Intent(this, LearnEnglish.class);
+        startActivity(intent);
+    }
 }

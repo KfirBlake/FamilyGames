@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".EnglishGame">
+
+    <include
+        layout="@layout/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/PicturePlaySoundAgain"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="false"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:onClick="playSoundAgain"
+            app:srcCompat="@drawable/speeker_say_again" />
+
+        <TextView
+            android:id="@+id/TitlePressToHearAgain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/bird_game_play_sound_again"
+            android:onClick="playSoundAgain"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <TableLayout android:id="@+id/buttonsTableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:stretchColumns="0,1">
+        <TableRow android:id="@+id/tableRow0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/English1ImageView"
+                android:layout_width="54dp"
+                android:layout_height="149dp"
+                android:gravity="center"
+                android:onClick="clickOnImageCheckResult"
+                app:srcCompat="@drawable/animals" />
+
+            <ImageView
+                android:id="@+id/English2ImageView"
+                android:layout_width="54dp"
+                android:layout_height="149dp"
+                android:gravity="center"
+                android:onClick="clickOnImageCheckResult"
+                app:srcCompat="@drawable/number2" />
+        </TableRow>
+        <TableRow android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/English3ImageView"
+                android:layout_width="54dp"
+                android:layout_height="149dp"
+                android:gravity="center"
+                android:onClick="clickOnImageCheckResult"
+                app:srcCompat="@drawable/number3" />
+
+            <ImageView
+                android:id="@+id/English4ImageView"
+                android:layout_width="54dp"
+                android:layout_height="149dp"
+                android:gravity="center"
+                android:onClick="clickOnImageCheckResult"
+                app:srcCompat="@drawable/number4" />
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

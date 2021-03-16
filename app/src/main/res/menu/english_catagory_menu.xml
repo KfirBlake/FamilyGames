@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_temp"
+        android:title="בחר משחק"
+        app:showAsAction="always">
+
+        <menu>
+
+            <group
+                android:id="@+id/menugroup_english_catagory"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_english_catagory_animals"
+                    android:title="חיות"
+                    android:checked="true"
+                    android:icon="@drawable/animals_icon"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/menu_english_catagory_colors"
+                    android:title="צבעים"
+                    android:icon="@drawable/colors"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/menu_english_catagory_numbers"
+                    android:title="מספרים"
+                    android:icon="@drawable/numbers_icon"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/menu_english_catagory_food"
+                    android:title="אוכל"
+                    android:icon="@drawable/food"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/menu_english_catagory_nature"
+                    android:title="טבע"
+                    android:icon="@drawable/nature_icon"
+                    app:showAsAction="ifRoom" />
+            </group>
+        </menu>
+    </item>
+</menu>
