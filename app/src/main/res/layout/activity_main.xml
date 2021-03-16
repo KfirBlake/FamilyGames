@@ -118,6 +118,32 @@
                 </TableRow>
 
                 <TableRow
+                    android:id="@+id/tableRow5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/startEnglishGameButton"
+                        android:layout_width="146dp"
+                        android:layout_height="98dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:background="@drawable/abc_game"
+                        android:gravity="center"
+                        android:onClick="startEnglishGame" />
+                    <Button
+                        android:id="@+id/startLearnEnglishButton"
+                        android:layout_width="146dp"
+                        android:layout_height="98dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:background="@drawable/abc"
+                        android:gravity="center"
+                        android:onClick="startLearnEnglish" />
+                </TableRow>
+
+                <TableRow
                     android:id="@+id/tableRow4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,6 +160,7 @@
                         android:gravity="center"
                         android:onClick="startCountGame" />
                 </TableRow>
+
             </TableLayout>
         </ScrollView>
     </LinearLayout>
