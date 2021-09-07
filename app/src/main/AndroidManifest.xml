@@ -114,12 +114,28 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".LearnEnglish"
+        <activity
+            android:name=".LearnEnglish"
             android:label="לימוד אנגלית"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".TicTacToeHome"
+            android:label="איקס עיגול"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".TicTacToeGame"
+            android:label="איקס עיגול"
+            android:parentActivityName=".TicTacToeHome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TicTacToeHome" />
         </activity>
 
     </application>

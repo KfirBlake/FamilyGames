@@ -147,4 +147,9 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, LearnEnglish.class);
         startActivity(intent);
     }
+    public void startTicTacToeGame(View view)
+    {
+        Intent intent = new Intent(this, TicTacToeHome.class);
+        startActivity(intent);
+    }
 }
